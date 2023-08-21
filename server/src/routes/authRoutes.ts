@@ -1,9 +1,10 @@
 import express from "express";
+import authController from "../controllers/authController";
 
 const router = express.Router();
 
-router.get("/register", (req, res) => {
-  res.send("You are trying to sign up");
+router.post("/register", (req, res) => {
+  authController.register(req, res);
 });
 
 router.post("/login", (req, res) => {
@@ -16,6 +17,10 @@ router.post("/logout", (req, res) => {
 
 router.post("/refresh", (req, res) => {
   res.send("You are trying to refresh");
+});
+
+router.post("/upload-avatar", (req, res) => {
+  res.send("You are trying to upload avatar");
 });
 
 export default router;
